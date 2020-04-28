@@ -64,7 +64,7 @@ static const BRCheckPoint BRMainNetCheckpoints[] = {
 };
 
 static const BRCheckPoint BRTestNetCheckpoints[] = {
-    {       0, uint256("ff1c819f7df8ed18ab5b2996101efea548b70923f993ab19e640edba9c6f9842"), 1588034486, 0x1f3fffff },
+    {       2155244, uint256("ff1c819f7df8ed18ab5b2996101efea548b70923f993ab19e640edba9c6f9842"), 1588034486, 0x1f3fffff },
     //{ 1512000, 
 };
 
