@@ -284,7 +284,7 @@ size_t BRAddressFromScriptPubKey(char *addr, size_t addrLen, const uint8_t *scri
         // pay-to-witness scriptPubKey
         r = BRBech32Encode(a, "sugar", script);
 #if BITCOIN_TESTNET
-        r = BRBech32Encode(a, "tsugar", script);
+        r = BRBech32Encode(a, "tugar", script);
 #endif
         if (addr && r > addrLen) r = 0;
         if (addr) memcpy(addr, a, r);
@@ -346,7 +346,7 @@ size_t BRAddressFromHash160(char *addr, size_t addrLen, const void *md20) {
     memcpy(&script[2], md20, 20);
     r = BRBech32Encode(a, "sugar", script);
 #if BITCOIN_TESTNET
-    r = BRBech32Encode(a, "tsugar", script);
+    r = BRBech32Encode(a, "tugar", script);
 #endif
     if (addr && r <= addrLen) memcpy(addr, a, r);
     return (! addr || r <= addrLen) ? r : 0;
@@ -363,7 +363,7 @@ size_t BRAddressScriptPubKey(uint8_t *script, size_t scriptLen, const char *addr
 #if BITCOIN_TESTNET
     pubkeyAddress = BITCOIN_PUBKEY_ADDRESS_TEST;
     scriptAddress = BITCOIN_SCRIPT_ADDRESS_TEST;
-    bech32Prefix = "tsugar";
+    bech32Prefix = "tugar";
 #endif
 
     if (BRBase58CheckDecode(data, sizeof(data), addr) == 21) {
@@ -429,7 +429,7 @@ int BRAddressIsValid(const char *addr) {
     } else if (BRBech32Decode(hrp, data, addr) > 2) {
         r = (strcmp(hrp, "sugar") == 0 && (data[0] != OP_0 || data[1] == 20 || data[1] == 32));
 #if BITCOIN_TESTNET
-        r = (strcmp(hrp, "tsugar") == 0 && (data[0] != OP_0 || data[1] == 20 || data[1] == 32));
+        r = (strcmp(hrp, "tugar") == 0 && (data[0] != OP_0 || data[1] == 20 || data[1] == 32));
 #endif
     }
 
